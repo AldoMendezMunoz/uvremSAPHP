@@ -1,0 +1,48 @@
+﻿footer {
+    border-top: 3px solid red;
+    margin-top: 100px;
+    background-color: black;
+    padding: 10px;
+    width: 100%;
+    color: white;
+    position: absolute;
+    bottom: 0;
+}
+.colorFooter {
+    color: red;
+}
+.text-padding {
+    padding: 10px;
+}
+.backgroud-white {
+    background-color: white;
+}
+.div-shadow {
+    -webkit-box-shadow: 10px 10px 18px 0px rgba(0,0,0,0.12);
+    -moz-box-shadow: 10px 10px 18px 0px rgba(0,0,0,0.12);
+    box-shadow: 10px 10px 18px 0px rgba(0,0,0,0.12);
+}
+.btn-position {
+    float: right;
+}
+.text-red{
+    color: red;
+}
+.text-red:hover{
+    color: red;
+}
+
+/* MAPA */
+#map {
+    width: 400px;
+    height: 300px;
+}
+
+.marker {
+    background-image: url('../img/puntero.png');
+    background-size: cover;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+}
