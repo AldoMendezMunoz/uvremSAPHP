@@ -1,3 +1,8 @@
+<?php 
+    require_once "../conexion.php";
+    $conexion = conexion();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,6 +37,24 @@
                         <td class="text-center">Estacionamientos</td>
                         <td class="text-center">Accion</td>
                     </tr>
+
+                    <?php 
+                        $sql = "SELECT * FROM estacionamiento";
+                        $result = mysqli_query($conexion, $sql);
+
+                        while($mostrar = mysqli_fetch_array($result)){
+
+                    ?>
+
+                    <tr>
+                            <td class="text-center"><?php echo $mostrar['direccion'] ?></td>
+                            <td class="text-center"><button class="btn btn-danger "><i class="fas fa-clipboard-list"></i> Reservar</button> </td>
+                    </tr>
+                    
+
+                    <?php 
+                        }
+                    ?>
                 </table>
 
             </aside>
@@ -40,6 +63,7 @@
             </aside>
         </section>
     </div>
+
     <script>
         mapboxgl.accessToken = 'pk.eyJ1IjoiY2hpbm9lbGN0bSIsImEiOiJjanhhazRnOGEwc252M3puMTk2empuMWo0In0.Nz9sUMpPCLcTv5VymZOWtw';
 
