@@ -10,8 +10,11 @@
     <link href="../css/menu.css" rel="stylesheet" />
     <link href="../css/all.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- MAPA -->
     <script src='https://api.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.css' rel='stylesheet' />
+    <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.3.0/mapbox-gl-geocoder.min.js'></script>
+    <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.3.0/mapbox-gl-geocoder.css' type='text/css' />
 </head>
 <body>
     <?php include('../template/menuLogeado.php'); ?>
@@ -40,7 +43,6 @@
     <script>
         mapboxgl.accessToken = 'pk.eyJ1IjoiY2hpbm9lbGN0bSIsImEiOiJjanhhazRnOGEwc252M3puMTk2empuMWo0In0.Nz9sUMpPCLcTv5VymZOWtw';
 
-
         
         var map = new mapboxgl.Map({
         container: 'map', // container id
@@ -49,8 +51,20 @@
         zoom: 9 // starting zoom
         });
 
-        // Add zoom and rotation controls to the map.
+        // Buscador
+        map.addControl(new MapboxGeocoder({
+            accessToken: mapboxgl.accessToken
+        }));
+        
+        // obtener ubicacion
         map.addControl(new mapboxgl.NavigationControl());
+        map.addControl(new mapboxgl.FullscreenControl());
+        map.addControl(new mapboxgl.GeolocateControl({
+        positionOptions: {
+            enableHighAccuracy: true
+            },
+            trackUserLocation: true
+        }));
         
 
         var element = document.createElement('div')
